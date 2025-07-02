@@ -1,12 +1,13 @@
 <template>
-  <div class="game-view-content card-base">
+  <div class="game-view-content card-base fade-in">
     <h2 class="text-highlight">Valorant News</h2>
     <div class="news-list">
-      <div v-for="(article, index) in articles" :key="index" class="news-article card-inner-style">
+      <div v-for="(article, index) in articles" :key="index" class="news-article card-inner-style fade-in-up-staggered">
+        <img :src="article.image" :alt="article.title" class="news-image" v-if="article.image">
         <h3>{{ article.title }}</h3>
         <p class="news-meta text-secondary">{{ article.date }} | แหล่งที่มา: {{ article.source }}</p>
         <p v-for="(paragraph, pIndex) in article.content" :key="pIndex">{{ paragraph }}</p>
-        <a href="#" class="read-more">อ่านเพิ่มเติม <span class="arrow">→</span></a>
+        <a :href="article.link" target="_blank" rel="noopener noreferrer" class="read-more" v-if="article.link">อ่านเพิ่มเติม <span class="arrow">→</span></a>
       </div>
     </div>
   </div>
@@ -18,39 +19,89 @@ export default {
     return {
       articles: [
         {
-          title: "ข้อมูลหลุด Agent คนใหม่ \"Chrono\" พร้อมความสามารถสุดล้ำ!",
-          date: "วันที่ 11 มิถุนายน 2568",
-          source: "ValoLeaks",
+          title: "VALORANT Patch Notes 11.00: อัปเดตเอเจนท์, แผนที่ Corrode ใหม่ และอื่นๆ",
+          date: "วันที่ 24 มิถุนายน 2568",
+          source: "VALORANT Official",
           content: [
-            "จากข้อมูลที่หลุดออกมาล่าสุด Agent คนใหม่ของ Valorant ที่คาดว่าจะชื่อ \"Chrono\" จะมีชุดสกิลที่เกี่ยวข้องกับการควบคุมเวลาและมิติ ทำให้สามารถชะลอการเคลื่อนที่ของศัตรู หรือย้อนเวลากลับไปในตำแหน่งก่อนหน้าได้ ความสามารถเหล่านี้จะนำเสนอรูปแบบการเล่นใหม่ๆ และอาจเปลี่ยน Metagame ครั้งใหญ่",
-            "Riot Games ยังไม่ได้ยืนยันข้อมูลอย่างเป็นทางการ แต่แฟนๆ ต่างตื่นเต้นกับความเป็นไปได้ของ Agent คนนี้."
-          ]
+            "แพทช์ 11.00 ได้นำเสนอการอัปเดตสำคัญสำหรับเอเจนท์ต่างๆ รวมถึงแผนที่ใหม่ชื่อ Corrode และการปรับการหมุนเวียนของแผนที่",
+            "รายละเอียดเพิ่มเติมเกี่ยวกับฟีเจอร์ใหม่และการปรับสมดุลทั้งหมดสามารถดูได้ในบันทึกแพทช์ฉบับเต็ม"
+          ],
+          link: "https://playvalorant.com/th-th/news/game-updates/",
+          image: "https://via.placeholder.com/400x200/404040/FFFFFF?text=Valorant+Patch+11.00" // Placeholder image
         },
         {
-          title: "สรุปผล Valorant Champions Tour (VCT) Masters Shanghai 2025",
-          date: "วันที่ 9 มิถุนายน 2568",
-          source: "VCT Official",
+          title: "VALORANT Games Changers Pacific 2025 กลับมาอีกครั้ง",
+          date: "วันที่ 26 มิถุนายน 2568",
+          source: "VALORANT Esports",
           content: [
-            "การแข่งขัน VCT Masters Shanghai 2025 ได้ปิดฉากลงแล้วด้วยความมันส์ โดยทีมจากภูมิภาค EMEA อย่าง \"Fnatic\" โชว์ฟอร์มสุดแกร่ง คว้าแชมป์ไปครองได้สำเร็จ พิสูจน์ให้เห็นว่าพวกเขายังคงเป็นหนึ่งในทีม Valorant ที่ดีที่สุดในโลก การแข่งขันเต็มไปด้วยเกมที่น่าจดจำ และกลยุทธ์ที่น่าทึ่งจากทุกทีม",
-            "เตรียมพบกับ VCT Champions 2025 ซึ่งเป็นการแข่งขันที่ใหญ่ที่สุดของปีในช่วงปลายปีนี้."
-          ]
+            "การแข่งขัน VALORANT Game Changers Pacific จะกลับมาจัดขึ้นอีกครั้งในปีนี้ เพื่อส่งเสริมและสนับสนุนวงการอีสปอร์ตสำหรับผู้เล่นหญิง"
+          ],
+          link: "https://valorantesports.com/en-us/news",
+          image: "https://via.placeholder.com/400x200/404040/FFFFFF?text=Game+Changers+Pacific" // Placeholder image
         },
         {
-          title: "ปรับแผนที่ Haven และ Ascent พร้อมการแก้ไขบั๊กครั้งใหญ่!",
-          date: "วันที่ 3 มิถุนายน 2568",
-          source: "Riot Games",
+          title: "VCT Pacific Stage 2: เพลงประจำการแข่งขันและบัตรเข้าชม",
+          date: "วันที่ 23 มิถุนายน 2568",
+          source: "VALORANT Esports",
           content: [
-            "Riot Games ได้ประกาศการปรับปรุงแผนที่ Haven และ Ascent ในแพทช์ถัดไป โดยจะมีการปรับเปลี่ยนบางจุดเพื่อเพิ่มความสมดุลและโอกาสในการเล่นที่หลากหลายขึ้น นอกจากนี้ยังมีการแก้ไขบั๊กจำนวนมากที่ส่งผลกระทบต่อการเล่นเกม เพื่อให้ประสบการณ์การเล่นมีความเสถียรและราบรื่นยิ่งขึ้นสำหรับผู้เล่นทุกคน."
-          ]
+            "มีการเปิดเผยข้อมูลเกี่ยวกับเพลงประจำการแข่งขัน VCT Pacific Stage 2 และการเปิดขายบัตรเข้าชมในเร็วๆ นี้",
+            "แฟนๆ สามารถเตรียมตัวพบกับการแข่งขันที่ดุเดือดและเพลงประกอบอันเร้าใจ"
+          ],
+          link: "https://valorantesports.com/en-us/news",
+          image: "https://via.placeholder.com/400x200/404040/FFFFFF?text=VCT+Pacific+Stage+2" // Placeholder image
         },
         {
-          title: "Valorant Mobile ประกาศเปิดตัวอย่างเป็นทางการ พร้อมทดสอบเร็วๆ นี้",
-          date: "วันที่ 27 พฤษภาคม 2568",
-          source: "Riot Games",
+          title: "โชว์แมตช์แผนที่ใหม่ Corrode: Team Tarik ปะทะ Team Toast",
+          date: "วันที่ 22 มิถุนายน 2568",
+          source: "VALORANT Official",
           content: [
-            "Riot Games ได้ประกาศอย่างเป็นทางการเกี่ยวกับ Valorant Mobile ที่จะเปิดตัวในปีนี้ โดยจะมีการทดสอบแบบปิดในบางประเทศก่อนการเปิดตัวจริง",
-            "Valorant Mobile จะรักษากลไกหลักของเกมไว้ทั้งหมด แต่มีการปรับเปลี่ยนการควบคุมให้เหมาะสมกับหน้าจอสัมผัส ผู้ที่สนใจสามารถลงทะเบียนเพื่อรับสิทธิ์ทดสอบได้ทางเว็บไซต์ทางการ"
-          ]
+            "มีการจัดการแข่งขันโชว์แมตช์พิเศษบนแผนที่ใหม่ Corrode โดยมี Team Tarik และ Team Toast มาประชันฝีมือกัน",
+            "แมตช์นี้เปิดโอกาสให้ผู้เล่นได้เห็นกลยุทธ์และการเล่นบนแผนที่ใหม่ก่อนเปิดให้เล่นจริง"
+          ],
+          link: "https://playvalorant.com/th-th/news/game-updates/",
+          image: "https://via.placeholder.com/400x200/404040/FFFFFF?text=Corrode+Showmatch" // Placeholder image
+        },
+        {
+          title: "Paper Rex คว้าแชมป์ VALORANT Masters Toronto",
+          date: "วันที่ 17 มิถุนายน 2568",
+          source: "GosuGamers",
+          content: [
+            "ทีม Paper Rex จากภูมิภาค APAC สามารถคว้าตำแหน่งแชมป์ VALORANT Masters Toronto ได้สำเร็จ สร้างประวัติศาสตร์ให้กับวงการอีสปอร์ตในภูมิภาค"
+          ],
+          link: "https://www.gosugamers.net/valorant/news",
+          image: "https://via.placeholder.com/400x200/404040/FFFFFF?text=Paper+Rex+Champions" // Placeholder image
+        },
+        {
+          title: "VALORANT Patch Notes 10.11: รางวัล Premier และ Death Cam ใหม่",
+          date: "วันที่ 10 มิถุนายน 2568",
+          source: "VALORANT Official",
+          content: [
+            "แพทช์ 10.11 มีการเพิ่มรางวัลใหม่สำหรับโหมด Premier และปรับปรุง Death Cam เพื่อแสดงเอฟเฟกต์ปิดฉากของสกินได้อย่างชัดเจนยิ่งขึ้น",
+            "นอกจากนี้ยังมีการเปลี่ยนแปลงเพลงบนหน้า Career อีกด้วย"
+          ],
+          link: "https://playvalorant.com/th-th/news/game-updates/",
+          image: "https://via.placeholder.com/400x200/404040/FFFFFF?text=Valorant+Patch+10.11" // Placeholder image
+        },
+        {
+          title: "การแข่งขัน Masters Toronto Grand Finals และการเปิดเผยแผนที่",
+          date: "วันที่ 16 มิถุนายน 2568",
+          source: "VALORANT Esports",
+          content: [
+            "การแข่งขัน VALORANT Masters Toronto เข้าสู่รอบ Grand Finals และมีการจัดโชว์แมตช์พร้อมเปิดเผยแผนที่ใหม่ในช่วงสุดสัปดาห์นั้น"
+          ],
+          link: "https://valorantesports.com/en-us/news",
+          image: "https://via.placeholder.com/400x200/404040/FFFFFF?text=Masters+Toronto+Finals" // Placeholder image
+        },
+        {
+          title: "Tejo's rise and fall: อัตราการเลือกใช้ Agent Tejo จากกรุงเทพฯ ถึงโตรอนโต",
+          date: "วันที่ 28 มิถุนายน 2568",
+          source: "TheSpike.gg",
+          content: [
+            "บทความวิเคราะห์แนวโน้มการเลือกใช้ Agent Tejo ในการแข่งขันระดับมืออาชีพ ตั้งแต่ VCT Bangkok ไปจนถึง Masters Toronto",
+            "แสดงให้เห็นถึงการเปลี่ยนแปลงของเมต้าเกมและผลกระทบต่อ Agent ตัวนี้"
+          ],
+          link: "https://www.thespike.gg/",
+          image: "https://via.placeholder.com/400x200/404040/FFFFFF?text=Agent+Tejo+Analysis" // Placeholder image
         }
       ]
     };
@@ -59,52 +110,115 @@ export default {
 </script>
 
 <style scoped>
-/* Keep the existing styles */
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUpStaggered {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.fade-in-up-staggered {
+  opacity: 0; /* Start hidden */
+  animation: fadeInUpStaggered 0.6s ease-out forwards;
+}
+
+/* Apply staggered delay using index (requires JS or a preprocessor for full automation) */
+/* For simplicity, you can manually add animation-delay based on index in template if needed,
+   or use a library like AOS (Animate On Scroll) for more advanced staggering.
+   Here, we'll just apply the base animation to all. */
+/* Example for manual staggering (can be added in template):
+   :style="{ 'animation-delay': (index * 0.1) + 's' }"
+*/
+
+/* Global variables for consistency */
+:root {
+  --color-primary: #1a1a2e; /* Dark background */
+  --color-secondary: #16213e; /* Slightly lighter background for cards */
+  --color-highlight: #e94560; /* Accent color for highlights */
+  --color-text-primary: #e0e0e0; /* Light text for readability */
+  --color-text-secondary: #a0a0a0; /* Secondary text color */
+  --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.4);
+  --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.6);
+  --border-radius-small: 8px;
+  --border-radius-medium: 15px;
+}
+
 .game-view-content {
   max-width: 1200px;
   margin: auto;
-  padding: 50px;
+  padding: 50px 20px; /* Added horizontal padding for smaller screens */
   text-align: center;
-  font-family: Kanit;
+  font-family: 'Kanit', sans-serif; /* Ensure Kanit is imported/available */
+  background-color: var(--color-primary);
+  color: var(--color-text-primary);
+  border-radius: var(--border-radius-medium);
+  box-shadow: var(--shadow-light);
 }
 
 h2 {
-  font-size: 3em;
+  font-size: 3.5em; /* Slightly larger heading */
   margin-bottom: 40px;
   color: var(--color-highlight);
   font-weight: 700;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8); /* Stronger text shadow */
+  letter-spacing: 1px;
 }
 
 .news-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjusted minmax for better flow */
   gap: 30px;
   justify-content: center;
   text-align: left;
 }
 
 .news-article {
-  background-color: var(--color-bg-secondary);
+  background-color: var(--color-secondary);
   padding: 30px;
   border-radius: var(--border-radius-medium);
-  border: 1px solid rgba(255, 255, 255, 0.03);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05); /* Slightly more visible border */
+  box-shadow: var(--shadow-light);
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  display: flex; /* Flexbox for internal layout */
+  flex-direction: column;
 }
 
 .news-article:hover {
-  transform: translateY(-8px);
+  transform: translateY(-10px); /* More pronounced lift effect */
   box-shadow: var(--shadow-hover);
-  background-color: var(--color-bg-primary);
+  background-color: #1a2744; /* Slightly lighter on hover */
+}
+
+.news-image {
+  width: 100%;
+  height: 200px; /* Fixed height for consistency */
+  object-fit: cover; /* Ensures image covers the area without distortion */
+  border-radius: var(--border-radius-small);
+  margin-bottom: 20px; /* Increased margin below image */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Clearer image border */
 }
 
 .news-article h3 {
-  font-size: 1.8em;
+  font-size: 2em; /* Larger article titles */
   color: var(--color-text-primary);
-  margin-bottom: 10px;
+  margin-bottom: 15px; /* Increased margin below title */
   font-weight: 700;
   transition: color 0.3s ease;
+  line-height: 1.3;
 }
 
 .news-article:hover h3 {
@@ -112,50 +226,53 @@ h2 {
 }
 
 .news-meta {
-  font-size: 0.8em;
+  font-size: 0.9em; /* Slightly larger meta text */
   color: var(--color-text-secondary);
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   font-style: italic;
+  opacity: 0.8;
 }
 
 .news-article p {
-  font-size: 1em;
-  line-height: 1.7;
-  margin-bottom: 20px;
+  font-size: 1.05em; /* Slightly larger body text */
+  line-height: 1.8; /* Improved line height for readability */
+  margin-bottom: 25px; /* Increased margin below paragraphs */
   color: var(--color-text-primary);
+  flex-grow: 1; /* Allows paragraphs to take available space */
 }
 
 .read-more {
   display: inline-flex;
   align-items: center;
-  margin-top: 10px;
+  margin-top: auto; /* Pushes "Read More" to the bottom */
   color: var(--color-highlight);
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  font-weight: 600; /* Bolder text */
+  transition: color 0.3s ease, transform 0.2s ease;
+  font-size: 1.1em;
 }
 
 .read-more:hover {
-  color: var(--color-highlight-darker);
+  color: #ff6b82; /* Brighter highlight on hover */
+  transform: translateX(5px); /* More noticeable arrow movement */
 }
 
 .read-more .arrow {
-  margin-left: 5px;
+  margin-left: 8px; /* Increased space for arrow */
   transition: transform 0.2s ease;
 }
 
 .read-more:hover .arrow {
-  transform: translateX(3px);
+  transform: translateX(5px);
 }
 
 /* Responsive Styles */
 @media (max-width: 900px) {
   .game-view-content {
-    padding: 30px;
-    max-width: 95%;
+    padding: 40px 20px;
   }
   h2 {
-    font-size: 2.5em;
+    font-size: 3em;
     margin-bottom: 30px;
   }
   .news-list {
@@ -165,20 +282,23 @@ h2 {
   .news-article {
     padding: 25px;
   }
+  .news-image {
+    height: 180px;
+  }
   .news-article h3 {
-    font-size: 1.5em;
+    font-size: 1.7em;
   }
   .news-article p {
-    font-size: 0.95em;
+    font-size: 1em;
   }
 }
 
 @media (max-width: 600px) {
   .game-view-content {
-    padding: 20px;
+    padding: 30px 15px;
   }
   h2 {
-    font-size: 2em;
+    font-size: 2.5em;
     margin-bottom: 25px;
   }
   .news-list {
@@ -188,32 +308,44 @@ h2 {
   .news-article {
     padding: 20px;
   }
+  .news-image {
+    height: 160px;
+    margin-bottom: 15px;
+  }
   .news-article h3 {
-    font-size: 1.3em;
+    font-size: 1.4em;
+    margin-bottom: 10px;
   }
   .news-article p {
-    font-size: 0.9em;
+    font-size: 0.95em;
+    margin-bottom: 15px;
   }
   .news-meta {
-    font-size: 0.75em;
+    font-size: 0.8em;
+  }
+  .read-more {
+    font-size: 1em;
   }
 }
 
 @media (max-width: 400px) {
   .game-view-content {
-    padding: 15px;
+    padding: 20px 10px;
   }
   h2 {
-    font-size: 1.8em;
+    font-size: 2em;
   }
   .news-article {
     padding: 15px;
   }
+  .news-image {
+    height: 140px;
+  }
   .news-article h3 {
-    font-size: 1.1em;
+    font-size: 1.2em;
   }
   .news-article p {
-    font-size: 0.85em;
+    font-size: 0.9em;
   }
 }
 </style>
