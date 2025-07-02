@@ -1,0 +1,111 @@
+/* src/assets/main.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* --- Font Kanit Import (Same as before) --- */
+@font-face {
+  font-family: 'Kanit';
+  src: url('./fonts/Kanit-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kanit';
+  src: url('./fonts/Kanit-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kanit';
+  src: url('./fonts/Kanit-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --- Global Variables (New: Pink-Black-Grey Theme with True Black Background) --- */
+:root {
+  --color-bg-primary: #111111; /* ดำสนิทสำหรับพื้นหลังหลัก */
+  --color-bg-secondary: #121212; /* เทาเข้มสำหรับ Header และองค์ประกอบรอง */
+  --color-bg-tertiary: #1A1A1A; /* เทาปานกลางสำหรับ Cards/Containers */
+  --color-text-primary: #F0F0F0; /* ขาวนวลสำหรับข้อความหลัก */
+  --color-text-secondary: #AAAAAA; /* เทาอ่อนสำหรับข้อความรอง */
+  --color-highlight: #FF69B4; /* ชมพูสดใส (Hot Pink) */
+  --color-highlight-darker: #DA70D6; /* ม่วงอมชมพู (Orchid) สำหรับ hover/active */
+  --color-accent: #00BCD4; /* ยังคงมีสีฟ้าอมเขียวไว้เป็น accent อื่นๆ ถ้าต้องการ */
+
+  --border-radius-large: 12px;
+  --border-radius-medium: 8px;
+  --shadow-primary: 0 4px 15px rgba(0, 0, 0, 0.5); /* เพิ่มความเข้มของเงา */
+  --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.8); /* เพิ่มความเข้มของเงาเมื่อ hover */
+}
+
+:root {
+  background-color: #242424;
+  --vt-c-white: #333333;
+  --vt-c-white-soft: #f8f8f8;
+  --vt-c-white-mute: #f2f2f2;
+
+  --vt-c-black: #181818;
+  --vt-c-black-soft: #222222;
+  --vt-c-black-mute: #282828;
+
+  --vt-c-indigo: #2c3e50;
+
+  --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
+  --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
+  --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
+  --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
+
+  --vt-c-text-light-1: var(--vt-c-indigo);
+  --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
+  --vt-c-text-dark-1: var(--vt-c-white);
+  --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
+}
+
+/* semantic color variables for this project */
+:root {
+  --color-background: var(--vt-c-white);
+  --color-background-soft: var(--vt-c-white-soft);
+  --color-background-mute: var(--vt-c-white-mute);
+
+  --color-border: var(--vt-c-divider-light-2);
+  --color-border-hover: var(--vt-c-divider-light-1);
+
+  --color-heading: var(--vt-c-text-light-1);
+  --color-text: var(--vt-c-text-light-1);
+
+  --section-gap: 160px;
+}
+
+/* --- Global Reset & Base Styles --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+/* --- Router Link Active Style --- */
+.router-link-exact-active {
+  color: var(--color-highlight) !important;
+  font-weight: 500;
+}
+
+body {
+  min-height: 100vh;
+  color: #d0d0d0;
+  background: var(--color-background);
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  line-height: 1.6;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
