@@ -10,7 +10,7 @@
 
     <section class="latest-news-summary-section container-padding">
       <div class="latest-news-summary card-base fade-in-up">
-        <h3 class="text-highlight summary-title">อัปเดตข่าวเด่นประจำสัปดาห์</h3>
+        <h3 class="text-highlight summary-title">ข่าวเด่นประจำสัปดาห์</h3>
         <ul>
           <li>Free Fire: โค้ดแลกรางวัล Garena Free Fire Max ประจำวันที่ 2 กรกฎาคม</li>
           <li>ROV: APL 2025 การแข่งขันนานาชาติ รอบ Swiss Stage กำลังดำเนินอยู่</li>
@@ -232,7 +232,7 @@ export default {
     margin-bottom: 15px;
   }
   .hero-subtitle {
-    font-size: 1.2em;
+    font-size: 1.1em;
   }
   .hero-tagline {
     font-size: 0.9em;

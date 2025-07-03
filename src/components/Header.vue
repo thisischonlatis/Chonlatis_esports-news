@@ -220,7 +220,7 @@ export default {
     opacity: 0;
   }
   .hamburger-menu .bar:nth-child(1).open {
-    transform: translateY(11px) rotate(45deg);
+    transform: translateY(6px) rotate(45deg);
   }
   .hamburger-menu .bar:nth-child(3).open {
     transform: translateY(-11px) rotate(-45deg);
