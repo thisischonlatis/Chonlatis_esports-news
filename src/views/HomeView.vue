@@ -195,7 +195,7 @@ export default {
     min-height: calc(100vh - 170px); /* Adjust for tablet header height */
   }
   .hero-section {
-
+    padding: 80px 20px; /* Adjust padding for tablet */
   }
   .hero-title {
     font-size: 3.8em;
@@ -225,7 +225,7 @@ export default {
     min-height: calc(100vh - 220px); /* Adjust for mobile header height */
   }
   .hero-section {
-
+    padding: 70px 15px; /* Adjust padding for mobile */
   }
   .hero-title {
     font-size: 2.8em;
