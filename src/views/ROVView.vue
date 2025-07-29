@@ -1,6 +1,6 @@
 <template>
   <div class="game-view-content card-base fade-in">
-    <h2 class="text-highlight">ROV News</h2> <div class="news-list">
+    <h2 class="text-highlight">ARENA OF VALOR</h2> <div class="news-list">
       <div v-for="(article, index) in articles" :key="index" class="news-article card-inner-style fade-in-up-staggered">
         <img :src="article.image" :alt="article.title" class="news-image" v-if="article.image">
         <h3>{{ article.title }}</h3>

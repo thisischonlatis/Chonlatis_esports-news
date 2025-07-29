@@ -5,7 +5,7 @@
 :root {
   /* Background Colors (Softer and less bright, unchanged from previous) */
   --color-bg-primary: hsl(0, 0%, 80%); /* พื้นหลังหลัก: เทาอ่อนนุ่ม */
-  --color-bg-secondary: hsl(0, 0%, 98%); /* พื้นหลังส่วนเนื้อหา/การ์ด: ขาวอมเทาอ่อน */
+  --color-bg-secondary: hsl(0, 0%, 80%); /* พื้นหลังส่วนเนื้อหา/การ์ด: ขาวอมเทาอ่อน */
   --color-bg-tertiary: hsl(0, 0%, 83%); /* พื้นหลังเข้มขึ้นเล็กน้อยสำหรับการ์ดหลัก/คอนเทนเนอร์ */
 
   /* Text Colors (NEWLY REFINED for better contrast in Light Mode) */

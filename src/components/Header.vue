@@ -18,42 +18,44 @@
       <router-link to="/freefire" class="nav-item">FREEFIRE</router-link>
       <router-link to="/rov" class="nav-item">ROV</router-link>
       <router-link to="/valorant" class="nav-item">VALORANT</router-link>
-      <button class="theme-toggle" @click="toggleTheme">
+      <button class="theme-toggle desktop-only" @click="toggleTheme">
         <font-awesome-icon :icon="currentTheme === 'light' ? 'fa-solid fa-moon' : 'fa-solid fa-sun'" class="theme-icon" />
       </button>
     </nav>
 
-    <div class="mobile-menu-overlay" v-if="isMobileMenuOpen" @click="closeMobileMenu"></div>
+    <div class="mobile-menu-overlay" v-show="isMobileMenuOpen" :class="{ 'open': isMobileMenuOpen }" @click="closeMobileMenu"></div>
 
-    <nav class="nav-section mobile-nav" v-if="isMobileMenuOpen">
-        <router-link to="/" class="nav-item" @click="closeMobileMenu">HOME</router-link>
-        <router-link to="/freefire" class="nav-item" @click="closeMobileMenu">FREEFIRE</router-link>
-        <router-link to="/rov" class="nav-item" @click="closeMobileMenu">ROV</router-link>
-        <router-link to="/valorant" class="nav-item" @click="closeMobileMenu">VALORANT</router-link>
-        <button class="theme-toggle mobile-only" @click="toggleTheme">
-          <font-awesome-icon :icon="currentTheme === 'light' ? 'fa-solid fa-moon' : 'fa-solid fa-sun'" class="theme-icon" />
-          <span>{{ currentTheme === 'light' ? 'Dark Mode' : 'Light Mode' }}</span>
-        </button>
-    </nav>
+    <transition name="slide-fade">
+      <nav class="nav-section mobile-nav" v-if="isMobileMenuOpen">
+          <router-link to="/" class="nav-item" @click="closeMobileMenu">HOME</router-link>
+          <router-link to="/freefire" class="nav-item" @click="closeMobileMenu">FREEFIRE</router-link>
+          <router-link to="/rov" class="nav-item" @click="closeMobileMenu">ROV</router-link>
+          <router-link to="/valorant" class="nav-item" @click="closeMobileMenu">VALORANT</router-link>
+          <button class="mobile-button mobile-only" @click="toggleTheme">
+            <font-awesome-icon :icon="currentTheme === 'light' ? 'fa-solid fa-moon' : 'fa-solid fa-sun'" class="theme-icon" />
+            <span>{{ currentTheme === 'light' ? 'DARK MODE' : 'LIGHT MODE' }}</span>
+          </button>
+      </nav>
+    </transition>
   </header>
 </template>
 
 <script>
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 library.add(faMoon, faSun);
 
 export default {
   name: 'Header',
   components: {
-    FontAwesomeIcon,
+    FontAwesomeIcon
   },
   data() {
     return {
       isMobileMenuOpen: false,
-      currentTheme: 'dark', // Default theme
+      currentTheme: 'light' // Default theme
     };
   },
   methods: {
@@ -69,18 +71,21 @@ export default {
     }
   },
   mounted() {
-    // Set initial theme based on system preference or saved preference
+    // Set initial theme based on system preference or saved setting
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
       this.currentTheme = savedTheme;
-      document.documentElement.setAttribute('data-theme', savedTheme);
     } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
       this.currentTheme = 'dark';
-      document.documentElement.setAttribute('data-theme', 'dark');
-    } else {
-      this.currentTheme = 'light';
-      document.documentElement.setAttribute('data-theme', 'light');
     }
+    document.documentElement.setAttribute('data-theme', this.currentTheme);
+
+    // Close mobile menu if window is resized above mobile breakpoint
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900 && this.isMobileMenuOpen) {
+        this.closeMobileMenu();
+      }
+    });
   },
   watch: {
     currentTheme(newTheme) {
@@ -142,18 +147,16 @@ export default {
 .nav-item {
   color: var(--color-text-primary);
   text-decoration: none;
-  font-weight: 500;
   font-size: 1.1em;
-  padding: 5px 0;
-  transition: color 0.3s ease;
   position: relative;
+  transition: color 0.3s ease;
 }
 
 .nav-item::after {
   content: '';
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: -5px;
   width: 0;
   height: 2px;
   background-color: var(--color-highlight);
@@ -173,36 +176,38 @@ export default {
   color: var(--color-highlight);
 }
 
+/* Theme Toggle Button */
 .theme-toggle {
   background: none;
   border: none;
   color: var(--color-text-primary);
-  font-size: 1.2em;
+  font-size: 1.4em;
   cursor: pointer;
-  margin-left: 20px;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
+  padding: 5px;
   display: flex;
   align-items: center;
-  gap: 8px; /* Space between icon and text for mobile */
+  justify-content: center;
 }
 
 .theme-toggle:hover {
   color: var(--color-highlight);
+  transform: scale(1.1);
 }
 
-.theme-toggle.mobile-only {
-  display: none; /* Hidden on desktop */
+.theme-icon {
+  pointer-events: none; /* Prevent icon from interfering with click */
 }
 
-/* Hamburger Menu for Mobile */
+/* Hamburger Menu */
 .hamburger-menu {
-  display: none; /* Hidden on desktop */
+  display: none; /* Hidden by default on desktop */
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 30px;
-  height: 25px;
+  height: 20px;
   cursor: pointer;
-  z-index: 1001; /* Above mobile menu overlay */
+  z-index: 1001; /* Ensure it's above the overlay */
 }
 
 .hamburger-menu .bar {
@@ -210,21 +215,19 @@ export default {
   height: 3px;
   background-color: var(--color-text-primary);
   transition: all 0.3s ease;
-  border-radius: 5px;
+  border-radius: 2px;
 }
 
-.hamburger-menu .bar:nth-child(2) {
-  opacity: 1;
+.hamburger-menu .bar:nth-child(1).open {
+  transform: translateY(8px) rotate(45deg);
 }
 
-.hamburger-menu .bar.open:nth-child(1) {
-  transform: translateY(11px) rotate(45deg);
-}
-.hamburger-menu .bar.open:nth-child(2) {
+.hamburger-menu .bar:nth-child(2).open {
   opacity: 0;
 }
-.hamburger-menu .bar.open:nth-child(3) {
-  transform: translateY(-11px) rotate(-45deg);
+
+.hamburger-menu .bar:nth-child(3).open {
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 /* Mobile Navigation Overlay */
@@ -232,11 +235,19 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
+  width: 100%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 998;
   cursor: pointer;
+  opacity: 0; /* Start hidden */
+  visibility: hidden; /* Start hidden */
+  transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+}
+
+.mobile-menu-overlay.open {
+  opacity: 1;
+  visibility: visible;
 }
 
 /* Mobile Navigation */
@@ -246,25 +257,50 @@ export default {
   position: fixed;
   top: 0;
   right: 0;
-  width: 75%; /* Responsive width */
-  max-width: 280px; /* Max width for larger mobiles */
+  width: 250px;
   height: 100vh;
   background-color: var(--color-bg-secondary);
-  padding-top: 80px;
+  padding-top: 80px; /* Space for header content */
   box-shadow: -5px 0 15px rgba(0, 0, 0, 0.4);
   z-index: 999;
   align-items: flex-start;
-  gap: 20px;
+  gap: 10px; /* Reduced gap for more compact menu */
+  /* transform and transition properties are now handled by Vue's <transition> component */
 }
 
 .mobile-nav .nav-item {
   width: 100%;
   padding: 15px 25px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  font-size: 1.2em; /* Slightly adjusted font size for mobile */
+  font-size: 1.3em;
+  box-sizing: border-box; /* Include padding in width */
 }
+
 .mobile-nav .nav-item:last-child {
   border-bottom: none;
+}
+
+/* Mobile theme toggle */
+.theme-toggle.mobile-only {
+  display: none; /* Hidden by default */
+}
+
+.mobile-button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 15px 25px;
+  background: none;
+  border: none;
+  color: var(--color-text-primary);
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+.mobile-button span {
+  margin-left: 10px;
+  font-family: Kanit;
 }
 
 /* Responsive adjustments */
@@ -299,7 +335,7 @@ export default {
 
 @media (max-width: 600px) { /* Mobile size and below */
   .header {
-    padding: 10px 15px;
+    padding: 10px 20px;
   }
   .logo-main {
     font-size: 1.8em;
@@ -309,14 +345,34 @@ export default {
   }
   .hamburger-menu {
     width: 25px;
-    height: 20px;
+    height: 18px;
   }
-  .hamburger-menu .bar.open:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
+  .mobile-nav {
+    width: 200px; /* Smaller width for smaller screens */
   }
-  .hamburger-menu .bar.open:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
-  }
-  /* Mobile nav width remains 75% max-width 280px - good for small phones */
+}
+
+/* General fade animation (if used elsewhere, otherwise can be removed) */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.3s ease;
+  opacity: 1;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}
+
+/* Slide-fade transition for mobile menu */
+.slide-fade-enter-active {
+  transition: transform 0.3s ease-out;
+  opacity: 1;
+}
+
+.slide-fade-leave-active {
+  transition: transform 0.3s ease-in;
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(100%); /* Start off-screen, end off-screen */
 }
 </style>
