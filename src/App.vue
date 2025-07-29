@@ -16,33 +16,30 @@ import Header from './components/Header.vue';
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  /* Background color set in main.css */
-  /* Font color set in main.css */
-  font-family: Kanit;
+  font-family: 'Kanit', sans-serif;
 }
 
 .content-area {
   flex-grow: 1;
   padding: 40px 20px;
-  margin-top: 80px; /* Adjust based on actual header height */
+  margin-top: 100px; /* ปรับตามความสูงจริงของ Header */
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Content starts from top */
-  text-align: center;
+  align-items: flex-start;
 }
 
-/* Responsive adjustments for content area padding */
-@media (max-width: 900px) { /* Tablet size and below */
+/* ปรับตามขนาดหน้าจอ */
+@media (max-width: 900px) {
   .content-area {
     padding: 30px 15px;
-    margin-top: 100px; /* Adjust for taller mobile header */
+    margin-top: 90px;
   }
 }
 
-@media (max-width: 600px) { /* Mobile size and below */
+@media (max-width: 600px) {
   .content-area {
     padding: 20px 10px;
-    margin-top: 90px;
+    margin-top: 80px;
   }
 }
 </style>

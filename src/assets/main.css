@@ -1,34 +1,59 @@
 /* src/assets/main.css */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&display=swap');
 
-/* --- Global Variables: Pink-Black-Grey Theme (Consistent with previous outputs) --- */
+/* --- Global Variables: Light Mode (Text Colors Refined for Clarity) --- */
 :root {
-  /* Background Colors */
-  --color-bg-primary: #111111; /* ดำสนิทสำหรับพื้นหลังหลักของ body, header */
-  --color-bg-secondary: #16213e; /* สีพื้นหลังของการ์ดและส่วนเนื้อหา */
-  --color-bg-tertiary: #1a1a2e; /* สีพื้นหลังเข้มขึ้นเล็กน้อยสำหรับ container หลัก */
+  /* Background Colors (Softer and less bright, unchanged from previous) */
+  --color-bg-primary: hsl(0, 0%, 80%); /* พื้นหลังหลัก: เทาอ่อนนุ่ม */
+  --color-bg-secondary: hsl(0, 0%, 98%); /* พื้นหลังส่วนเนื้อหา/การ์ด: ขาวอมเทาอ่อน */
+  --color-bg-tertiary: hsl(0, 0%, 83%); /* พื้นหลังเข้มขึ้นเล็กน้อยสำหรับการ์ดหลัก/คอนเทนเนอร์ */
 
-  /* Text Colors */
-  --color-text-primary: #e0e0e0; /* สีข้อความหลัก (ขาวเทา) */
-  --color-text-secondary: #a0a0a0; /* สีข้อความรอง (เทา) */
+  /* Text Colors (NEWLY REFINED for better contrast in Light Mode) */
+  --color-text-primary: hsl(0, 0%, 15%); /* ข้อความหลัก: ดำเข้มเกือบดำสนิท เพื่อความคมชัดสูงสุด */
+  --color-text-secondary: hsl(0, 0%, 35%); /* ข้อความรอง: เทากลางที่ชัดเจน */
 
-  /* Highlight/Accent Color (Pink/Red) */
-  --color-highlight: #e94560; /* สีไฮไลต์/เน้น (ชมพูอมแดง) */
-  --color-highlight-darker: #c73a52; /* สีไฮไลต์เข้มขึ้นสำหรับ hover */
+  /* Highlight/Accent Color (Pink, slightly adjusted for better pop) */
+  --color-highlight: hsl(330, 85%, 50%); /* สีไฮไลต์: ชมพูที่โดดเด่น */
+  --color-highlight-darker: hsl(330, 85%, 40%); /* สีไฮไลต์เข้มขึ้นสำหรับ hover */
 
   /* Shadows */
-  --shadow-base: 0 4px 15px rgba(0, 0, 0, 0.4); /* เงาหลักสำหรับการ์ด */
-  --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.6); /* เงาสำหรับ hover */
-  --shadow-text: 3px 3px 8px rgba(0, 0, 0, 0.8); /* เงาสำหรับข้อความหัวข้อ */
+  --shadow-base: 0 4px 15px rgba(0, 0, 0, 0.06); /* เงาหลักสำหรับการ์ด */
+  --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.12); /* เงาเมื่อ hover */
+  --shadow-text: 3px 3px 8px rgba(0, 0, 0, 0.01); /* เงาข้อความ */
 
-  /* Borders & Radius */
-  --border-color: rgba(255, 255, 255, 0.05); /* สีขอบบางๆ */
+  /* Borders & Radius (UPDATED: Border color for Light Mode is clearer) */
+  --border-color: rgba(0, 0, 0, 0.15); /* สีเส้นขอบ: เทาเข้มขึ้น เพื่อให้มองเห็นชัดเจนในโหมดสว่าง */
   --border-radius-small: 8px;
   --border-radius-medium: 15px;
 
   /* Spacing */
-  --spacing-unit: 10px; /* หน่วยการเว้นวรรคพื้นฐาน */
+  --spacing-unit: 10px;
 }
+
+/* --- Dark Mode Variables (Unchanged) --- */
+[data-theme="dark"] {
+  /* Background Colors */
+  --color-bg-primary: #1a1a1a;
+  --color-bg-secondary: #2c2c2c;
+  --color-bg-tertiary: #202020;
+
+  /* Text Colors */
+  --color-text-primary: hsl(0, 0%, 90%); /* ขาวอมเทาอ่อนมาก */
+  --color-text-secondary: hsl(0, 0%, 70%); /* เทากลาง */
+
+  /* Highlight/Accent Color (Pink/Red) */
+  --color-highlight: hsl(330, 100%, 70%); /* ชมพูสว่างขึ้น */
+  --color-highlight-darker: hsl(330, 100%, 60%);
+
+  /* Shadows */
+  --shadow-base: 0 4px 15px rgba(0, 0, 0, 0.4);
+  --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.6);
+  --shadow-text: 3px 3px 8px rgba(0, 0, 0, 0.8);
+
+  /* Borders & Radius */
+  --border-color: rgba(255, 255, 255, 0.05); /* สีเส้นขอบใน Dark Mode ยังคงเดิม */
+}
+
 
 /* --- Global Styles --- */
 body {
@@ -38,9 +63,15 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--color-bg-primary); /* ใช้สีพื้นหลังหลักจากตัวแปร */
-  color: var(--color-text-primary);
+  color: var(--color-text-primary); /* ข้อความ body ใช้ primary text color */
   line-height: 1.6;
   overflow-x: hidden; /* Prevent horizontal scroll */
+  transition: background-color 0.3s ease, color 0.3s ease; /* เพิ่ม transition */
+}
+
+/* ป้องกันการเลื่อนเมื่อเมนูมือถือเปิด */
+body.no-scroll {
+  overflow: hidden;
 }
 
 /* Base card styling (used for home summary and news articles) */
@@ -49,7 +80,7 @@ body {
   border-radius: var(--border-radius-medium);
   box-shadow: var(--shadow-base);
   border: 1px solid var(--border-color); /* เพิ่มขอบบางๆ */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease; /* เพิ่ม transition */
 }
 
 .card-inner-style {
@@ -57,17 +88,19 @@ body {
   border-radius: var(--border-radius-medium);
   box-shadow: var(--shadow-base);
   border: 1px solid var(--border-color);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease; /* เพิ่ม transition */
 }
 
 .text-highlight {
   color: var(--color-highlight);
   font-weight: 700;
   text-shadow: var(--shadow-text);
+  transition: color 0.3s ease, text-shadow 0.3s ease; /* เพิ่ม transition */
 }
 
 .text-secondary {
   color: var(--color-text-secondary);
+  transition: color 0.3s ease; /* เพิ่ม transition */
 }
 
 /* Utility classes for consistency */
@@ -77,13 +110,21 @@ body {
 
 /* Basic reset/normalization for links and buttons */
 a {
-  color: inherit;
+  color: inherit; /* ลิงก์จะใช้สีข้อความที่สืบทอดมา */
   text-decoration: none;
 }
 
 a:hover {
-  color: var(--color-highlight);
+  color: var(--color-highlight); /* สีลิงก์เมื่อ hover จะเป็นสีไฮไลต์ */
 }
+
+/* การเปลี่ยนแปลงสำหรับ "รายการข่าวประจำสัปดาห์ไม่ต้องเปลี่ยนสีหน้า Home" */
+.latest-news-summary ul li {
+  /* ใช้สีดำเข้มที่ถูกกำหนดไว้ใน Light Mode */
+  color: hsl(0, 0%, 15%);
+  transition: none; /* ไม่มี transition สำหรับสีนี้ */
+}
+
 
 /* Add some basic body margin-top to account for fixed header */
 body {
