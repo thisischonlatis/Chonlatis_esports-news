@@ -1,8 +1,8 @@
 <template>
-  <div class="home-page-layout fade-in">
+  <div class="home-page-layout">
     <section class="hero-section">
       <div class="hero-content">
-        <h2 class="hero-title text-highlight">ESPORTS NEWS</h2>
+        <h2 class="hero-title text-highlight fade-in">ESPORTS NEWS</h2>
         <p class="hero-subtitle text-primary">แหล่งรวมข่าวสารล่าสุดของวงการเกมอีสปอร์ต</p>
         <p class="hero-tagline text-secondary">ส่งมอบประสบการณ์อีสปอร์ตที่ยอดเยี่ยมที่สุด</p>
       </div>
@@ -46,7 +46,7 @@ export default {
 }
 
 .fade-in {
-  animation: fadeIn 0.8s ease-out forwards;
+  animation: fadeIn 3s ease-out forwards;
 }
 
 .fade-in-up {
