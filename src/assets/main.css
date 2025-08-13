@@ -4,9 +4,15 @@
 /* --- Global Variables: Light Mode (Text Colors Refined for Clarity) --- */
 :root {
   /* Background Colors (Softer and less bright, unchanged from previous) */
+<<<<<<< HEAD
   --color-bg-primary: hsl(0, 0%, 95%); /* พื้นหลังหลัก: เทาอ่อนนุ่ม */
   --color-bg-secondary: hsl(0, 0%, 95%); /* พื้นหลังส่วนเนื้อหา/การ์ด: ขาวอมเทาอ่อน */
   --color-bg-tertiary: hsl(0, 0%, 90%); /* พื้นหลังเข้มขึ้นเล็กน้อยสำหรับการ์ดหลัก/คอนเทนเนอร์ */
+=======
+  --color-bg-primary: hsl(0, 0%, 100%);
+  --color-bg-secondary: hsl(0, 0%, 100%);
+  --color-bg-tertiary: hsl(180, 0%, 100%);
+>>>>>>> dc8ebda0719f9d1b4f09bfee21473c2ddf7fce35
 
   /* Text Colors (NEWLY REFINED for better contrast in Light Mode) */
   --color-text-primary: hsl(0, 0%, 15%); /* ข้อความหลัก: ดำเข้มเกือบดำสนิท เพื่อความคมชัดสูงสุด */
