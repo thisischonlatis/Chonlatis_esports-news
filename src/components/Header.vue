@@ -1,9 +1,10 @@
 <template>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></link>
   <header class="header">
     <div class="logo-section">
       <router-link to="/" class="logo-link">
         <h1 class="logo-main text-highlight">ESPORTS NEWS</h1>
-        <p class="logo-sub text-secondary">Electronic Esport News</p>
+        <p class="logo-sub text-secondary">Electronic Esports News</p>
       </router-link>
     </div>
 

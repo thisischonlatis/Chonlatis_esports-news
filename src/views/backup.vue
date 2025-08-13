@@ -47,47 +47,6 @@ export default {
     return {
       articles: [
         {
-          title: "Garena ประกาศใช้กรุงเทพจัดศึกนานาชาติ APL 2025 ",
-          date: "17 เมษายน 2025",
-          image: "https://cdn.oneesports.co.th/cdn-data/sites/3/2024/04/361945800_689715149836906_3083614027490474033_n-1024x683.jpg",
-          source: "ROV Esports Thailand",
-          content: [
-            "Garena ได้ประกาศข่าวดีแก่แฟนๆ RoV ในประเทศไทยว่าการแข่งขันรายการนานาชาติ APL 2025 จะจัดขึ้นที่กรุงเทพมหานครในช่วงเดือยมิถุนายน-กรกฎาคมนี้",
-          ],
-          link: "https://rov.in.th/proleague"
-        },
-        {
-          title: "eArena เอาชนะ Bacon Time ป้องกันแชมป์ RoV Pro League  ",
-          date: "27 เมษายน 2025",
-          image: "https://cdn.oneesports.co.th/cdn-data/sites/3/2025/04/eArena-1024x576.png",
-          source: "ROV Esports Thailand",
-          content: [
-            "eArena ผงาดคว้าแชมป์ RoV Pro League สมัยที่สองของตัวเองไปครองได้หลังโชว์ฟอร์มสุดยอดในรอบแกรนด์ไฟนอลด้วยการเอาชนะ  Bacon Time ไป 4-0",
-          ],
-          link: "https://rov.in.th/proleague"
-        },
-        {
-          title: "APL 2025 เตรียมเปิดศึกรอบรองฯ–ชิงฯ ที่ BITEC Live",
-          date: "3 มิถุนายน 2025",
-          image: "https://cdn.oneesports.co.th/cdn-data/sites/3/2025/06/APL-2025.png",
-          source: "ROV Esports Thailand",
-          content: [
-            "การีนาเตรียมจัดการแข่งขัน Arena of Valor Premier League 2025(APL 2025) รอบรองชนะเลิศและรอบชิงชนะเลิศในกรุงเทพมหานคร วันที่ 19–20 กรกฎาคมนี้ พร้อมถ่ายทอดสดจากไบเทค ไลฟ์ สู่สายตาแฟน RoV ทั่วภูมิภาค",
-            "การแข่งขัน APL 2025 ถือเป็นรายการสำคัญกลางปีที่รวบรวมสุดยอดทีมจาก 3 ลีกหลักในภูมิภาค ได้แก่ RPL, AOG และ GCS พร้อมด้วยอีก 4 ทีมที่ผ่านการคัดเลือกจากรอบ Wildcard รวมเป็น 16 ทีมที่พร้อมประชันฝีมือบนเวทีระดับนานาชาติ โดยการแข่งขันรอบ Swiss Stage จะมีขึ้นระหว่างวันที่ 26 มิถุนายน – 6 กรกฎาคม ก่อนเข้าสู่รอบ Knockout ระหว่างวันที่ 10 – 13 กรกฎาคม และปิดท้ายด้วยการแข่งขันรอบรองชนะเลิศและรอบชิงชนะเลิศ ณ ศูนย์ประชุมไบเทค ไลฟ์ กรุงเทพฯ ในวันที่ 19 – 20 กรกฎาคม"
-          ],
-          link: "https://rov.in.th/proleague"
-        },
-        {
-          title: "APL 2025 : Bacon Time คืนฟอร์มปราบ Talon Esports",
-          date: "30 มิถุนายน 2025",
-          image: "https://cdn.oneesports.co.th/cdn-data/sites/3/2025/06/APL-2025-3-1024x557.png",
-          source: "ROV Esports Thailand",
-          content: [
-            "ในการแข่งขันรอบ Swiss Stage สองตัวแทนจากไทยต้องโคจรมาพบกันเอง โดยทั้งคู่ต่างพ่ายแพ้มาในนัดแรก โดย Bacon Time นั้นแพ้ให้กับ One Star Esports ส่วนทางด้าน Talon Esports นั้นแพ้ให้กับ Team Flash มาก่อน ทำให้ในเกมนี้หากใครแพ้จะต้องเจอกับความกดดันอย่างหนักเพราะจะพลาดแพ้อีกไม่ได้"
-          ],
-          link: "https://rov.in.th/proleague"
-        },
-        {
           title: "Talon ดึง TLN Psocute เสริมแกร่งตำแหน่ง Mid Lane",
           date: "10 สิงหาคม 2025",
           source: "ROV Esports Thailand",
@@ -139,7 +98,7 @@ export default {
           title: "Goverra ฮีโร่ใหม่มาแรงในแพตช์ล่าสุด",
           date: "2 สิงหาคม 2025",
           source: "Play Store",
-          image: "https://media.discordapp.net/attachments/931798588210696252/1405144122179846175/unnamed.jpg?ex=689dc1f1&is=689c7071&hm=60289595cee1a5958c21bf9543b31ee9d6100cd698218917789db09fbcbad8c8&=&format=webp&width=1116&height=628",
+          image: "https://example.com/goverra.jpg",
           glowColor: "#8b008b", // สีม่วงเข้มจากสมมติ
           content: [
             "Goverra ฮีโร่สายไฟท์เตอร์มาพร้อมสกิล Burst Damage สูง และท่า Ultimate ที่พลิกเกมได้",
@@ -148,10 +107,46 @@ export default {
           link: "https://play.google.com/store/apps/details?id=com.garena.game.kgth"
         },
         {
+          title: "PSG คว้าตั๋วเข้าสู่รอบ Swiss Stage APL 2025",
+          date: "24 พฤษภาคม 2025",
+          source: "Garena RoV Thailand",
+          image: "https://example.com/psg-win.jpg",
+          glowColor: "#00b7eb", // สีฟ้าจากสมมติ
+          content: [
+            "PSG เอาชนะคู่แข่งจากอินโดนีเซีย 3-0 ทำให้ผ่านเข้าสู่รอบ Swiss Stage ได้สำเร็จ",
+            "นับเป็นการกลับมาที่แข็งแกร่งของทีม PSG"
+          ],
+          link: "https://www.facebook.com/ROVTH/posts/1017075920636025"
+        },
+        {
+          title: "RoV Thailand Esports Premier League 2025 เปิดฉาก",
+          date: "15 กรกฎาคม 2025",
+          source: "Garena RoV Thailand",
+          image: "https://example.com/tepl2025.jpg",
+          glowColor: "#ff4500", // สีส้มแดงจากสมมติ
+          content: [
+            "การแข่งขัน TEPL 2025 ได้เริ่มต้นขึ้นโดยมีทีมชั้นนำจากทั่วประเทศเข้าร่วม",
+            "เพื่อชิงเงินรางวัลรวมและสิทธิ์เข้า RoV Pro League ปีหน้า"
+          ],
+          link: "https://www.youtube.com/c/garenarovthailand"
+        },
+        {
+          title: "Valhein ได้รับการปรับสมดุลครั้งใหญ่",
+          date: "1 สิงหาคม 2025",
+          source: "ROV.in.th",
+          image: "https://example.com/valhein-balance.jpg",
+          glowColor: "#ffd700", // สีเหลืองจากสมมติ
+          content: [
+            "Valhein ได้รับการปรับสกิลให้มีพลังโจมตีพื้นฐานสูงขึ้น แต่ลดอัตราการยิงคริติคอล",
+            "การเปลี่ยนแปลงนี้ทำให้สมดุลการเล่นดีขึ้นในเลนแครี่"
+          ],
+          link: "https://rov.in.th/patch-notes"
+        },
+        {
           title: "โหมด Spectate ใหม่เปิดใช้งานแล้ว",
           date: "3 สิงหาคม 2025",
           source: "ROV.in.th",
-          image: "https://cdn-webth.garenanow.com/webth/cdn/gth/rov/non-events/official/433b965b789cb4c12ed622db18ed9fb2306342148.jpg",
+          image: "https://example.com/spectate-mode.jpg",
           glowColor: "#00ff7f", // สีเขียวจากสมมติ
           content: [
             "โหมด Spectate ใหม่ช่วยให้ผู้เล่นติดตามการแข่งขันได้ง่ายขึ้น",
@@ -159,6 +154,18 @@ export default {
           ],
           link: "https://rov.in.th/patch-notes/beta-36"
         },
+        {
+          title: "FS และ PSG เผชิญหน้ากันในรอบ Swiss Stage",
+          date: "27 พฤษภาคม 2025",
+          source: "Garena RoV Thailand",
+          image: "https://example.com/fs-vs-psg.jpg",
+          glowColor: "#ff69b4", // สีชมพูจากสมมติ
+          content: [
+            "สองทีมไทยต้องมาเจอกันเองในรอบ Swiss Stage ของ APL 2025",
+            "เกมนี้ถูกคาดหวังว่าจะเป็นหนึ่งในแมตช์ที่ดุเดือดที่สุด"
+          ],
+          link: "https://www.youtube.com/watch?v=WenC5arPey8"
+        }
       ]
     };
   },
@@ -281,14 +288,20 @@ h2::after {
 
 .news-image {
   width: 100%;
+  height: 200px;
   object-fit: cover;
   border-radius: var(--border-radius-small);
   margin-bottom: 20px;
   transition: transform var(--transition-medium), box-shadow var(--transition-medium);
-  /* เพิ่ม box-shadow ที่เข้ากับธีม */
-  box-shadow:
-    0 4px 24px 0 rgba(233, 69, 96, 0.25), /* สีแดง highlight */
-    0 2px 8px 0 rgba(26, 26, 46, 0.18);    /* สีพื้นหลังเข้ม */
+  /* แสงเรืองตามสีของรูป */
+  box-shadow: 0 0 10px var(--glow-color, rgba(255, 255, 255, 0.5)),
+              0 0 20px var(--glow-color, rgba(255, 255, 255, 0.3));
+}
+
+.news-article:hover .news-image {
+  transform: scale(1.02);
+  box-shadow: 0 0 15px var(--glow-color, rgba(255, 255, 255, 0.7)),
+              0 0 30px var(--glow-color, rgba(255, 255, 255, 0.4));
 }
 
 .news-article h3 {
@@ -393,6 +406,10 @@ h2::after {
   
   .news-list {
     grid-template-columns: 1fr;
+  }
+  
+  .news-image {
+    height: 180px;
   }
   
   .news-meta {
